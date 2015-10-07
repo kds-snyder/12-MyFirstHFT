@@ -15,7 +15,8 @@ namespace MyFirstHFT
             try
             {               
                 // Get the input stock symbol               
-                string inputSymbol = getString("Enter a stock symbol, for example AAPL, GOOG, or MSFT: ");
+                string inputSymbol = 
+                    getString("Enter a stock symbol, for example AAPL or GOOG or MSFT: ");
 
                 // Get the current stock quote (using input symbol in upper case)
                 // If found, display the current stock quote with indication to wait           
