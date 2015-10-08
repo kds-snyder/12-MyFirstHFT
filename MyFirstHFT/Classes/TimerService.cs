@@ -24,13 +24,18 @@ namespace MyFirstHFT.Classes
             timer.Enabled = true;
         }
 
-        // Handle timer elapsed event:
+        // Timer elapsed: update current stock info
         // 
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            //Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
-            StockService.GetNewCurrentStockInfo();
-
+            try
+            {
+                StockService.UpdateCurrentStockInfo();
+            }
+            catch (Exception except)
+            {
+                Console.WriteLine("An error occurred: {0}", except.Message);
+            }
         }
     }
 }

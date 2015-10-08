@@ -17,7 +17,7 @@ namespace MyFirstHFT.Classes
         public static StockQuote previousStockQuote = new StockQuote();
 
         // Temporary counter to change prices
-        //public static int counter = 0;
+        public static int counter = 0;
 
         // Get stock information for the input symbol,
         // and store it in the current stock quote
@@ -78,36 +78,16 @@ namespace MyFirstHFT.Classes
         }
 
 
-        // Copy current stock quote to previous stock quote
-        public static void CopyCurrentToPrevious()
-        {
-            previousStockQuote.companyName = currentStockQuote.companyName;
-            previousStockQuote.symbol = currentStockQuote.symbol;
-            previousStockQuote.price = currentStockQuote.price;
-            previousStockQuote.dayLowPrice = currentStockQuote.dayLowPrice;
-            previousStockQuote.dayHighPrice = currentStockQuote.dayHighPrice;                                   
-        }
-
-        // Copy previous stock quote to current  stock quote
-        public static void CopyPreviousToCurrent()
-        {
-            currentStockQuote.companyName = previousStockQuote.companyName;
-            currentStockQuote.symbol = previousStockQuote.symbol;
-            currentStockQuote.price = previousStockQuote.price;
-            currentStockQuote.dayLowPrice = previousStockQuote.dayLowPrice;
-            currentStockQuote.dayHighPrice = previousStockQuote.dayHighPrice;
-        }
-
         // Get a new current quote (after copying current to previous),
         //  and display with appropriate indication
         //  according to comparison with previous
-        public static void GetNewCurrentStockInfo()
+        public static void UpdateCurrentStockInfo()
         {            
            CopyCurrentToPrevious();       
            if (GetCurrentStockInfo(currentStockQuote.symbol))
            {
                 
-                /* Temporary: change prices            
+                // Temporary: change prices            
                 if ((counter % 2) == 0)
                 {
                     currentStockQuote.price = previousStockQuote.price + 1;
@@ -121,8 +101,7 @@ namespace MyFirstHFT.Classes
                     currentStockQuote.price = previousStockQuote.price;
                 }                
                 ++counter;
-                // End temporary price change
-                */               
+                // End temporary price change                               
 
                 if (currentStockQuote.price > previousStockQuote.price)
                 {
@@ -154,6 +133,26 @@ namespace MyFirstHFT.Classes
                   currentStockQuote.companyName, currentStockQuote.price,
                   currentStockQuote.dayLowPrice, currentStockQuote.dayHighPrice,
                   infoString);
+        }
+
+        // Copy current stock quote to previous stock quote
+        public static void CopyCurrentToPrevious()
+        {
+            previousStockQuote.companyName = currentStockQuote.companyName;
+            previousStockQuote.symbol = currentStockQuote.symbol;
+            previousStockQuote.price = currentStockQuote.price;
+            previousStockQuote.dayLowPrice = currentStockQuote.dayLowPrice;
+            previousStockQuote.dayHighPrice = currentStockQuote.dayHighPrice;
+        }
+
+        // Copy previous stock quote to current  stock quote
+        public static void CopyPreviousToCurrent()
+        {
+            currentStockQuote.companyName = previousStockQuote.companyName;
+            currentStockQuote.symbol = previousStockQuote.symbol;
+            currentStockQuote.price = previousStockQuote.price;
+            currentStockQuote.dayLowPrice = previousStockQuote.dayLowPrice;
+            currentStockQuote.dayHighPrice = previousStockQuote.dayHighPrice;
         }
 
     }

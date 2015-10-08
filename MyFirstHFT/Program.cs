@@ -31,16 +31,15 @@ namespace MyFirstHFT
                 }
                 
                 //  Set a timer to display more stock quotes                
-                TimerService.setTimer(TIMERDURATION);            
+                TimerService.setTimer(TIMERDURATION);
 
             }
             catch (Exception e)
             {
                 Console.WriteLine("An error occurred: {0}", e.Message); 
-            }
-            
-            Console.ReadLine();
+            }            
 
+            Console.ReadLine();
         }
 
         // Prompt user to enter string, using input prompt
