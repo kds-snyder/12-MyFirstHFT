@@ -17,7 +17,7 @@ namespace MyFirstHFT.Classes
         public static StockQuote previousStockQuote = new StockQuote();
 
         // Temporary counter to change prices
-        public static int counter = 0;
+        //public static int counter = 0;
 
         // Get stock information for the input symbol,
         // and store it in the current stock quote
@@ -87,7 +87,7 @@ namespace MyFirstHFT.Classes
            if (GetCurrentStockInfo(currentStockQuote.symbol))
            {
                 
-                // Temporary: change prices            
+                /* Temporary: change prices            
                 if ((counter % 2) == 0)
                 {
                     currentStockQuote.price = previousStockQuote.price + 1;
@@ -101,7 +101,8 @@ namespace MyFirstHFT.Classes
                     currentStockQuote.price = previousStockQuote.price;
                 }                
                 ++counter;
-                // End temporary price change                               
+                // End temporary price change
+                */                               
 
                 if (currentStockQuote.price > previousStockQuote.price)
                 {

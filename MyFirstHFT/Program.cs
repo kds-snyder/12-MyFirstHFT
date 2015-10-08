@@ -23,20 +23,25 @@ namespace MyFirstHFT
                 if (StockService.GetCurrentStockInfo(inputSymbol.ToUpper()))               
                 {                   
                    StockService.DisplayCurrentStockQuote("Wait for more information");
+
+                    //  Set a timer to display more stock quotes                
+                    TimerService.setTimer(TIMERDURATION);
+
+                    Console.ReadLine();
+                    TimerService.stopTimer();
+                    Console.WriteLine("Press <enter> to exit...");
                 }
                 else
                 {                    
                     Console.WriteLine("No stock information was found for {0}",
                                        inputSymbol);
-                }
-                
-                //  Set a timer to display more stock quotes                
-                TimerService.setTimer(TIMERDURATION);
+                }                              
 
             }
             catch (Exception e)
             {
-                Console.WriteLine("An error occurred: {0}", e.Message); 
+                Console.WriteLine("An error occurred: {0}", e.Message);
+                Console.ReadLine();
             }            
 
             Console.ReadLine();
@@ -44,14 +49,27 @@ namespace MyFirstHFT
 
         // Prompt user to enter string, using input prompt
         // Return the string that the user enters
-        static string getString(string prompt)
+        // Allow input of only <return> according to indicator AcceptEmpty
+        static string getString(string prompt, bool AcceptEmpty=false)
         {
             string result = "";
-            do
+            bool done = false;
+            while (!done)
             {
                 Console.Write(prompt);
                 result = Console.ReadLine();
-            } while (result == "");
+                if (result.Length == 0)
+                {
+                    if (AcceptEmpty)
+                    {
+                        done = true;
+                    }
+                }
+                else
+                {
+                    done = true;
+                }
+            } 
 
             return result;
         }

@@ -5,3 +5,4 @@ C:\dev\12-MyFirstHFT\MyFirstHFT\bin\Debug\Newtonsoft.Json.dll
 C:\dev\12-MyFirstHFT\MyFirstHFT\bin\Debug\Newtonsoft.Json.xml
 C:\dev\12-MyFirstHFT\MyFirstHFT\obj\Debug\MyFirstHFT.exe
 C:\dev\12-MyFirstHFT\MyFirstHFT\obj\Debug\MyFirstHFT.pdb
+C:\dev\12-MyFirstHFT\MyFirstHFT\obj\Debug\MyFirstHFT.csprojResolveAssemblyReference.cache
